@@ -1,2 +1,5 @@
-# ShoeShop-React
-React를 활용해 실습 페이지 UI 보강하기(PWA 구현)
+# ShoeShop : 신발 쇼핑몰 사이트
+***
+##### [2022.04.03~] React를 활용해 실습 페이지 UI 보강하기(PWA 구현)
+
+* 
