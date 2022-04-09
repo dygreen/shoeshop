@@ -6,6 +6,6 @@
 ### 컴포넌트 및 전체적인 UI 트리 
 
 ### 기능 설명
-* Route로 페이지 분류(Home|Detail|Cart)
+* Route로 페이지 분류(Home | Detail | Cart)
 * navbar의 메뉴를 클릭하면 해당 페이지로 이동
 * useHistory를 통해 뒤로가기 버튼 구현(Detail.js)
