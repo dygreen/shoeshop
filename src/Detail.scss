@@ -1,0 +1,17 @@
+@mixin alert() {
+  background: #fffd93;
+  padding: 15px;
+  border-radius: 5px;
+  max-width: 500px;
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.my-alert {
+  @include alert()
+}
+
+.my-alert p {
+  margin-bottom: 0;
+}
