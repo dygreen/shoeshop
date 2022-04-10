@@ -5,10 +5,10 @@ import './Detail.scss';
 function Detail(){
 
   // useEffect를 활용하여 mount 끝났을 때, 재고 알림창 띄우기
-  let [alert, alertChange] = useState(true);
+  let [alert, setAlert] = useState(true);
   useEffect(() => {
     let timer = setTimeout(() => {
-      alertChange(false);
+      setAlert(false);
     }, 2000);
 
     return () => { clearTimeout(timer) } /* return+함수: 컴포넌트가 사라질 때 타이머를 없애는 코드 추가 */
