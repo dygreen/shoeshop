@@ -1,54 +1,90 @@
-.App {
-  text-align: center;
+/* navbar */
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar .container {
+  width: 1200px;
+  position: relative;
 }
 
-/* here */
+.navbar .container .right {
+  position: absolute;
+  right: 0;
+}
+
+/* jumbotron */
 .background {
-  padding: 10vw;
-  background-image: url("./background.jpeg");
+  background: url(./background.jpg) no-repeat center center;
   background-size: cover;
-  color: white;
+  padding: 10vw;
+  width: 100%;
+  height: 450px;
 }
 
-#orderBtn {
-  margin-right: 5px;
+.intro {
+  width: 1200px;
+  margin: 0px auto;
+  padding-bottom: 10px;
+  color: #f9f9f9;
+  top: 150px;
 }
 
-.btn-primary {
-  margin-top: 20px;
+.intro p:nth-of-type(2) {
+  margin-left: 80px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Home */
+.container2 {
+  text-align: center;
+  width: 1200px;
+  margin: 30px auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.col-md-4 {
+  padding: 20px;
+}
+
+.moreBtn {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin: -15px auto;
 }
 
-.App-link {
-  color: #61dafb;
+.sortBtn {
+  margin: 3px;
+  margin-top: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.sortBtn:first-of-type{margin-left: 720px;}
+
+@media screen and (max-width: 880px) {
+  .col-md-4 {
+    width: 50vw;
+    height: 50vh;
   }
-  to {
-    transform: rotate(360deg);
+
+  .right {
+    display: none;
   }
 }
+
+
+/* cart page*/
+.table{
+  width: 1200px; 
+  margin: 70px auto;
+  color: #666;
+}
+
+.table h1{
+  margin: 30px 0;
+  color: #333;
+}
+
+.table td{padding: 10px;}
+
+.table Button{padding: 5px 10px;}

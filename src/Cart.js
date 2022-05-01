@@ -1,65 +1,60 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
-import { connect, useDispatch, useSelector } from 'react-redux';
-import Detail from "./Detail.js";
+import { Table, Button } from 'react-bootstrap';
+import './App.css';
+import './Detail.scss';
+import { connect, useSelector, useDispatch } from 'react-redux';
 
+function Cart(props){
+  // useSelector Hook 사용
+  // let state = useSelector((state) => state);
+  let dispatch = useDispatch();
 
-function Cart(props) {
-
-    let state = useSelector((state) => state)
-    console.log(state.reducer);
-    let dispatch = useDispatch();
-
-    return (
+  return(
     <div>
-        <Table responsive>
-            <tr>
-                <th>#</th>
-                <th>상품명</th>
-                <th>수량</th>
-                <th>변경</th>
-            </tr>
-            {state.reducer.map((a, i) => {
-                return (
-                <tr key={i}>
-                    <td>{ a.id }</td>
-                    <td>{ a.name }</td>
-                    <td>{ a.quan }</td>
-                    <td>
-                        <button onClick={() => { dispatch({ type: 'quanUp', data : a.id })}}>+</button>
-                        <button onClick={() => { dispatch({ type: 'quanDown', data: a.id })}}>-</button>
-                    </td>
-                </tr>
-                )
-            })}
-        </Table>
-
-        {/* 알림창 UI + 닫기 기능 */}
-        { props.alert === true
-            ? 
-            (<div className="my-alert-yellow">
-                <p>지금 구매하시면 신규할인 20%</p>
-                <button onClick={() => { dispatch({ type: 'alertClose' })}}>닫기</button>
-            </div>)
-            : null
-        }
-
-
+      <Table striped bordered hover className='table'>
+        <h1>도연님의 장바구니</h1>
+        <tr>
+          <th>#</th>
+          <th>상품명</th>
+          <th>수량</th>
+          <th>변경</th>
+        </tr>
+        { props.state.map((a,i)=>{
+          return (
+          <tr key={i}>
+            <td>{a.id}</td>
+            <td>{a.name}</td>
+            <td>{a.quan}</td>
+            <td>
+              <Button variant="outline-success" onClick={()=>{dispatch({type: 'quanUp', data: a.id})}}>+</Button>
+              <Button variant="outline-success" onClick={()=>{dispatch({type: 'quanDown', data: a.id})}}>-</Button>
+              {/* <button onClick={()=>{dispatch({type: 'quanDown', data: a.id})}}>-</button> */} 
+            </td>
+          </tr>
+          )
+        })}
+      </Table>
+      
+      {/* alert창 */}
+      { props.alert === true
+        ? (<div className='my-alert'>
+        <p>지금 구매하시면 20% 할인</p>
+        <Button variant="primary" onClick={()=>{dispatch({type: 'alertX'})}}>✕</Button>
+        </div>)
+        : null
+      }
     </div>
-    )
+  )
 }
 
-// redux store 데이터를 가져와서 props로 변환해주는 함수 (state를 props화 시켜주는)
-// function 함수명(state) { 
-//     console.log(state);
-//     return {
-//         state : state.reducer, /* 첫 reducer에 담긴 데이터(firstval data) */
-//         alert : state.reducer2 /* reducer2에 담긴 데이터(=true) */
-//     }
-// }
+// redux_ store(index.js)에 있는 state를 props로 만들어주는 함수
+function makeProps(state){
+  return {
+    state : state.reducer,
+    alert : state.reducer2
+  }
+}
 
-// export default connect(함수명)(Cart)
+export default connect(makeProps)(Cart);
 
-export default Cart;
-
-
+// export default Cart;
