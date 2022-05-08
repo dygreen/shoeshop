@@ -20,9 +20,9 @@
 * useHistory를 통해 뒤로가기 버튼 구현
 * useEffect를 통해 Detail 페이지 방문 후 2초 후에 alert박스가 사라지는 기능
 * tab 기능
+* '주문하기'버튼 클릭시 Cart에 해당 상품 데이터 추가(같은 상품을 계속 추가하면 항목이 아닌 수량 증가)
 
 ***Cart page***
 * redux로 장바구니용 데이터 데이터바인딩
 * reducer/dispatch: 수량증감 버튼, alert창+닫기버튼
-* Detail페이지에서 '주문하기'버튼 클릭시 Cart에 해당 상품 데이터 추가(같은 상품을 계속 추가하면 항목x수량o 증가
 * 수량 증감 버튼
