@@ -9,15 +9,15 @@ import { combineReducers, createStore } from 'redux';
 
 // Cart: 장바구니 수량 변경 버튼
 let shoes = [
-  {id: 0, name: "nice shoes", quan: 2},
-  {id: 1, name: "snikers", quan: 1},
+  {id: 0, name: "White and Black", quan: 0},
+  {id: 1, name: "Red Knit", quan: 0},
 ];
 
 function reducer(state = shoes, action){
   if(action.type === 'add'){
     // 같은 상품을 주문하면, 항목추가x 수량증가o (findeIndex()활용)
     let found = state.findIndex((a)=>{return a.id === action.data.id}); /* state안에 id: action.data인 것이 있으면-있는 '자리'의 값을 남김(found=0,1,2...) */
-    if(found >= 0 && state.name === action.data.name){
+    if(found >= 0){
       let copy = [...state];
       copy[found].quan++;
       return copy

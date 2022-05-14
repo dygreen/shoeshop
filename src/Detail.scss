@@ -16,16 +16,23 @@
   margin-bottom: 0;
 }
 
-.tab-enter {
+.start {
   opacity: 0;
 }
 
-.tab-enter-active {
+.end {
   opacity: 1;
-  transition: all 500ms;
+  transition: opacity 0.5s;
 }
 
 .detail{
   width: 1200px;
   margin: 100px auto;
+}
+
+.info{margin-top: 20px;}
+
+.select_box{
+  display: block;
+  margin-bottom: 20px;
 }

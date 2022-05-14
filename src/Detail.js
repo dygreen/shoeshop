@@ -5,6 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import './Detail.scss';
 
+
 function Detail(props){
 
   // useEffect를 활용하여 mount 끝났을 때, 재고 알림창 띄우기
@@ -28,8 +29,19 @@ function Detail(props){
   let [tabIn, setTabIn] = useState(false); 
   let history = useHistory(); /* 뒤로가기 버튼을 위한 useHistory Hook */
 
+
+  // Detail 컴포넌트 로드시 투명도가 0에서 1로 서서히 증가하는 애니메이션 효과
+  let [fade2, setFade2] = useState('');
+  useEffect(() => {
+    setFade2("end");
+    return () => {
+      setFade2('');
+    }
+  }, []);
+
+
   return(  
-    <div className="container detail">
+    <div className={`container detail start ${fade2}`}>
 
       {/* 알림창 */}
       { alert === true
@@ -46,14 +58,24 @@ function Detail(props){
           <p>{찾은상품.content}</p>
           <p>{찾은상품.price}원</p>
 
-          <Info stock={props.stock} />
+          <Info stock={props.stock} /> {/* 재고 */}
+
+          <select name="size" class="select_box">
+            <option>=== size ===</option>
+            <option>230</option>
+            <option>240</option>
+            <option>250</option>
+            <option>260</option>
+            <option>270</option>
+          </select>
 
           <button className="btn btn-danger" onClick={()=>{
             props.setStock([9,10,11]);
             props.dispatch({type:'add', data: {id: 찾은상품.id, name: 찾은상품.title, quan: 1}});
             history.push('/cart');
             }}>주문하기</button>
-          <button onClick={()=>{ history.push('/') }} className="btn btn-danger">뒤로가기</button>
+          <button onClick={()=>{ history.push('/cart')}} className='btn btn-success' style={{margin: '0 5px'}}>장바구니</button>
+          <button onClick={()=>{ history.push('/') }} className="btn btn-dark">뒤로가기</button>
         </div>
       </div>
 
@@ -87,19 +109,29 @@ function Info(props){
 }
 
 // 탭(tab) 기능
-function TabContent(props){
+function TabContent({tab}){ /* {tab} => props */
+
+  let [fade, setFade] = useState('');
 
   useEffect(() => {
-    props.setTabIn(true); /* 탭내용 컴포넌트가 로드될 떄 true로 변경되어 css 효과 */
-  });
+    let tabTimer = setTimeout(() => {setFade("end")},100); /* 리액트의 automatic batching 기능을 고려한 setTimeout 코드 */
+    return () => {
+      clearTimeout(tabTimer);
+      setFade('');
+    }
+  }, [tab]);
 
-  if (props.tab === 0){
+  return (<div className={`start ${fade} info`}>
+    {[<div>상품정보 내용입니다</div>, <div>배송관련 내용입니다</div>, <div>환불약관 내용입니다</div>][tab]}
+  </div>)
+  
+  /* if (tab === 0){
     return <div>상품정보 내용입니다</div>
-  } else if (props.tab === 1){
+  } else if (tab === 1){
     return <div>배송관련 내용입니다</div>
-  } else if (props.tab === 2){
+  } else if (tab === 2){
     return <div>환불약관 내용입니다</div>
-  }
+  } */
 }
 
 function makeProps(state){

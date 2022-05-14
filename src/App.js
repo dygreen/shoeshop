@@ -65,49 +65,51 @@ function App() {
           </Jumbotron>
 
           {/* 정렬 버튼 */}
-          <Button variant="warning" className="sortBtn" onClick={()=>{
-                const sorted = [...shoes].sort((a,b) => {
-                  return a.price - b.price
-                });
-                setShoes(sorted);
-          }}>가격순정렬</Button>
-              
-          <Button variant="success" className="sortBtn" onClick={()=>{
-                const abc = [...shoes].sort((a,b) => {
-                  if(a.title < b.title){
-                    return -1
-                  } else if(a.title == b.title){
-                    return 0
-                  } else {
-                    return 1
-                  }
-                });
-                setShoes(abc);
-          }}>abc정렬</Button>
-  
-          <Button variant="danger" className="sortBtn" onClick={()=>{
-                const cba = [...shoes].sort((a,b)=>{
-                  if(a.title < b.title){
-                    return 1
-                  } else if(a.title == b.title){
-                    return 0
-                  } else {
-                    return -1
-                  }
-                });
-                setShoes(cba);
-          }}>cba정렬</Button>
-  
-          <Button variant="info" className="sortBtn" onClick={()=>{
-                const priceF = [...shoes].filter((a)=>{
-                  return a.price <= 110000
-                });
-                setShoes(priceF);
-          }}>11만원이하</Button> 
-  
-          <Button variant="dark" className="sortBtn" onClick={()=>{
-                setShoes(orig);
-          }}>원래대로</Button>
+          <div className="button_list">
+            <Button variant="warning" className="sortBtn" onClick={()=>{
+                  const sorted = [...shoes].sort((a,b) => {
+                    return a.price - b.price
+                  });
+                  setShoes(sorted);
+            }}>가격순정렬</Button>
+                
+            <Button variant="success" className="sortBtn" onClick={()=>{
+                  const abc = [...shoes].sort((a,b) => {
+                    if(a.title < b.title){
+                      return -1
+                    } else if(a.title == b.title){
+                      return 0
+                    } else {
+                      return 1
+                    }
+                  });
+                  setShoes(abc);
+            }}>abc정렬</Button>
+    
+            <Button variant="danger" className="sortBtn" onClick={()=>{
+                  const cba = [...shoes].sort((a,b)=>{
+                    if(a.title < b.title){
+                      return 1
+                    } else if(a.title == b.title){
+                      return 0
+                    } else {
+                      return -1
+                    }
+                  });
+                  setShoes(cba);
+            }}>cba정렬</Button>
+    
+            <Button variant="info" className="sortBtn" onClick={()=>{
+                  const priceF = [...shoes].filter((a)=>{
+                    return a.price <= 110000
+                  });
+                  setShoes(priceF);
+            }}>11만원이하</Button> 
+    
+            <Button variant="dark" className="sortBtn" onClick={()=>{
+                  setShoes(orig);
+            }}>원래대로</Button>
+          </div>
 
           {/* 상품 데이터 Card */}
           <div className="container2">

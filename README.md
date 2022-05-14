@@ -1,28 +1,70 @@
-## shoeshop : 신발 쇼핑몰 사이트
-[ 2022.04.03~2022. ]
+# Getting Started with Create React App
 
-> 리액트 강의를 들으며 만든 쇼핑몰을 처음부터 다시 만들어보며 새로운 기능도 추가하였다
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### 컴포넌트 및 전체적인 UI 트리 
+## Available Scripts
 
-***
+In the project directory, you can run:
 
-### 기능 설명
-* Route로 페이지 분류(Home | Detail | Cart)
+### `npm start`
 
-***Home***
-* navbar의 메뉴를 클릭하면 해당 페이지로 이동
-* 상품 이미지 클릭하면 해당 상품 Detail페이지로 이동
-* '더보기'버튼 클릭시 axios로 서버에 요청한 상품 데이터 보여주기(+준비한 상품 데이터가 더이상 없을 경우 버튼 숨기기)
-* 상품정렬 버튼(가격순|abc순|cba순|11만원이하|원래대로)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-***Detail page***
-* useHistory를 통해 뒤로가기 버튼 구현
-* useEffect를 통해 Detail 페이지 방문 후 2초 후에 alert박스가 사라지는 기능
-* tab 기능
-* '주문하기'버튼 클릭시 Cart에 해당 상품 데이터 추가(같은 상품을 계속 추가하면 항목이 아닌 수량 증가)
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-***Cart page***
-* redux로 장바구니용 데이터 데이터바인딩
-* reducer/dispatch: 수량증감 버튼, alert창+닫기버튼
-* 수량 증감 버튼
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

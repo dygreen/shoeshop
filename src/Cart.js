@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table, Button } from 'react-bootstrap';
+import { useHistory, useParams } from 'react-router-dom';
 import './App.css';
 import './Detail.scss';
 import { connect, useSelector, useDispatch } from 'react-redux';
@@ -8,6 +9,7 @@ function Cart(props){
   // useSelector Hook 사용
   // let state = useSelector((state) => state);
   let dispatch = useDispatch();
+  let history = useHistory();
 
   return(
     <div>
@@ -28,7 +30,6 @@ function Cart(props){
             <td>
               <Button variant="outline-success" onClick={()=>{dispatch({type: 'quanUp', data: a.id})}}>+</Button>
               <Button variant="outline-success" onClick={()=>{dispatch({type: 'quanDown', data: a.id})}}>-</Button>
-              {/* <button onClick={()=>{dispatch({type: 'quanDown', data: a.id})}}>-</button> */} 
             </td>
           </tr>
           )
@@ -43,6 +44,8 @@ function Cart(props){
         </div>)
         : null
       }
+
+      <button onClick={()=>{ history.goBack(); }} className="btn btn-dark btn-cart">뒤로가기</button>
     </div>
   )
 }
