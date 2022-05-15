@@ -28,7 +28,7 @@ function Detail(props){
   let [tab, setTab] = useState(0);
   let [tabIn, setTabIn] = useState(false); 
   let history = useHistory(); /* 뒤로가기 버튼을 위한 useHistory Hook */
-
+  let [size, setSize] = useState(''); /* size value 저장 */
 
   // Detail 컴포넌트 로드시 투명도가 0에서 1로 서서히 증가하는 애니메이션 효과
   let [fade2, setFade2] = useState('');
@@ -60,18 +60,21 @@ function Detail(props){
 
           <Info stock={props.stock} /> {/* 재고 */}
 
-          <select name="size" class="select_box">
+          <select name="size" class="select_box" onChange={(e)=>{
+            let sizeValue = e.target.value;
+            setSize(sizeValue);
+          }}>
             <option>=== size ===</option>
-            <option>230</option>
-            <option>240</option>
-            <option>250</option>
-            <option>260</option>
-            <option>270</option>
+            <option value="230">230</option>
+            <option value="240">240</option>
+            <option value="250">250</option>
+            <option value="260">260</option>
+            <option value="270">270</option>
           </select>
 
           <button className="btn btn-danger" onClick={()=>{
             props.setStock([9,10,11]);
-            props.dispatch({type:'add', data: {id: 찾은상품.id, name: 찾은상품.title, quan: 1}});
+            props.dispatch({type:'add', data: {id: 찾은상품.id, name: 찾은상품.title, quan: 1, size: size}});
             history.push('/cart');
             }}>주문하기</button>
           <button onClick={()=>{ history.push('/cart')}} className='btn btn-success' style={{margin: '0 5px'}}>장바구니</button>

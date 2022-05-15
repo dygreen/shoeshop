@@ -9,8 +9,8 @@ import { combineReducers, createStore } from 'redux';
 
 // Cart: 장바구니 수량 변경 버튼
 let shoes = [
-  {id: 0, name: "White and Black", quan: 0},
-  {id: 1, name: "Red Knit", quan: 0},
+  {id: 0, name: "White and Black", quan: 0, size: 0},
+  {id: 1, name: "Red Knit", quan: 0, size: 0},
 ];
 
 function reducer(state = shoes, action){
@@ -20,6 +20,7 @@ function reducer(state = shoes, action){
     if(found >= 0){
       let copy = [...state];
       copy[found].quan++;
+      copy[found].size = action.data.size; /* size 값 나타내기 */
       return copy
     } else {
       let copy = [...state];
@@ -38,6 +39,12 @@ function reducer(state = shoes, action){
     } else {
       return copy
     }
+  } else if (action.type === 'deleteX'){ /* 삭제 기능 */
+    let copy = [...state];
+    let deleteV = copy.filter((a)=>{
+      return a.id !== action.data
+    });
+    return deleteV
   } else {
     return state
   }
@@ -45,14 +52,29 @@ function reducer(state = shoes, action){
 
 // Cart: alert창 UI
 let alert = true;
-
-function reducer2(state = alert,action){
+function reducer2(state = alert, action){
   if (action.type === 'alertX'){
     return false
   } else {
     return state
   }
 }
+
+// Cart: 장바구니 항목 삭제
+// let deleteV = [...shoes];
+/* let deleteV = [...shoes];
+function reducer3(state = deleteV, action){
+  if(action.type === 'deleteX'){
+    let found = state.findIndex((a)=>{return a.id === action.data.id});
+    let copy = [...state];
+    copy[found] = '';
+    deleteV[found] = '';
+    state[action.data.id] = '';
+    return deleteV
+  } else {
+    return state
+  }
+} */
 
 let store = createStore(combineReducers({reducer,reducer2}));
 

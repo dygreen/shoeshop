@@ -18,6 +18,7 @@ function Cart(props){
         <tr>
           <th>#</th>
           <th>상품명</th>
+          <th>사이즈</th>
           <th>수량</th>
           <th>변경</th>
         </tr>
@@ -26,10 +27,14 @@ function Cart(props){
           <tr key={i}>
             <td>{a.id}</td>
             <td>{a.name}</td>
+            <td>{a.size}</td>
             <td>{a.quan}</td>
             <td>
               <Button variant="outline-success" onClick={()=>{dispatch({type: 'quanUp', data: a.id})}}>+</Button>
               <Button variant="outline-success" onClick={()=>{dispatch({type: 'quanDown', data: a.id})}}>-</Button>
+            </td>
+            <td>
+              <Button variant="outline-secondary" onClick={()=>{dispatch({type: 'deleteX', data: a.id})}}>✕</Button>
             </td>
           </tr>
           )
