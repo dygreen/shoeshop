@@ -9,7 +9,7 @@ React를 활용해 실습 페이지 UI 보강하기(PWA 구현)
 
 
 ## Pages
-: 총 4 페이지 (Home | Detail | Cart | Login)
+: 총 4 페이지 (Home | Detail | Cart)
 
 ***Home Page***
 * Router를 이용해 페이지 나누기
