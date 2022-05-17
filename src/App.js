@@ -1,7 +1,7 @@
 /*eslint-disable*/
 
-import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { Navbar, Nav, NavDropdown, Container, Jumbotron, Button } from 'react-bootstrap';
+import React, { useState, useEffect, lazy, Suspense, useRef } from 'react';
+import { Navbar, Nav, NavDropdown, Container, Jumbotron, Button, Form } from 'react-bootstrap';
 import { BsFillPersonFill } from "react-icons/bs";
 import { AiOutlineShopping } from "react-icons/ai";
 import { Link, Route, Switch, useHistory } from 'react-router-dom';
@@ -20,13 +20,16 @@ function App() {
   let [count, setCount] = useState(0); /* 더보기 버튼 클릭 횟수 */
   let [fail, setFail] = useState(true); /* catch함수에 담을 내용 */
   let [stock, setStock] = useState([10,11,12,14,19,21,2,5,27]); /* 재고 데이터 */
-
+  
+  let [login, setLogin] = useState(true); /* 로그인 모달창 */
+  let modal = useRef();
 
   return (
     <div className="App">
       {/* Navbar */}
       <Navbar className="navbar" bg="light" expand="lg">
         <Container className="container">
+          {/* 왼쪽 gnb */}
           <Navbar.Brand href="#home" as={Link} to="/"> ShoeShop </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -41,8 +44,40 @@ function App() {
                 <NavDropdown.Item href="#action/3.4"> Recommend </NavDropdown.Item>
               </NavDropdown>
             </Nav>
+            {/* 오른쪽 gnb */}
             <Nav className="me-auto right">
-              <Nav.Link><BsFillPersonFill className="login" size="22"/></Nav.Link>
+              <Nav.Link onClick={()=>{setLogin(false)}}><BsFillPersonFill className="login" size="22"/></Nav.Link>
+              {/* 로그인 모달창 */}
+              { login == false 
+                ? ( 
+                  <Form>
+                    <div className="black_back" ref={modal} onClick={(e)=>
+                    {if(modal.current === e.target){
+                      setLogin(true)
+                    }}}></div>{/* modal */}
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Email address</Form.Label>
+                      <Form.Control type="email" placeholder="Enter email" />
+                      <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                      </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control type="password" placeholder="Password" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                      <Form.Check type="checkbox" label="Check me out" />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                      Submit
+                    </Button>
+                  </Form>
+                )
+                : null
+              }
+
               <Nav.Link as={Link} to="/cart"><AiOutlineShopping className="cart" size="22"/></Nav.Link>
             </Nav>
           </Navbar.Collapse>

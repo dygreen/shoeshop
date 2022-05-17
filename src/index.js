@@ -60,24 +60,7 @@ function reducer2(state = alert, action){
   }
 }
 
-// Cart: 장바구니 항목 삭제
-// let deleteV = [...shoes];
-/* let deleteV = [...shoes];
-function reducer3(state = deleteV, action){
-  if(action.type === 'deleteX'){
-    let found = state.findIndex((a)=>{return a.id === action.data.id});
-    let copy = [...state];
-    copy[found] = '';
-    deleteV[found] = '';
-    state[action.data.id] = '';
-    return deleteV
-  } else {
-    return state
-  }
-} */
-
 let store = createStore(combineReducers({reducer,reducer2}));
-
 
 ReactDOM.render(
   <React.StrictMode>

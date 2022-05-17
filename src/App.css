@@ -33,6 +33,36 @@
   color: #f9f9f9;
 }
 
+/* modal */
+Form{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+Form .black_back{ /* 모달 - 검정 배경 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  z-index: 100;
+}
+
+Form .mb-3, Form Button{
+  width: 350px;
+  color: #fff;
+  position: relative;
+  z-index: 200;
+}
+
 /* Home */
 .container2 {
   text-align: center;
