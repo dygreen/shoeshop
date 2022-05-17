@@ -22,7 +22,7 @@ function App() {
   let [stock, setStock] = useState([10,11,12,14,19,21,2,5,27]); /* 재고 데이터 */
   
   let [login, setLogin] = useState(true); /* 로그인 모달창 */
-  let modal = useRef();
+  let modal = useRef(); /* 모달창 선택을 위한 hook */
 
   return (
     <div className="App">
