@@ -1,5 +1,5 @@
 # ShoeShop-React
-React를 활용해 실습 페이지 UI 보강하기(PWA 구현)
+React를 활용해 실습 페이지 UI 보강하기(PWA 셋팅)
 > React 온라인 강의를 들으며 제작했던 쇼핑몰 페이지 보강하기
 > 
 > [2022.04.09~2022.05.17]
@@ -12,6 +12,7 @@ React를 활용해 실습 페이지 UI 보강하기(PWA 구현)
 
 ## Pages
 : 총 3 페이지 (Home | Detail | Cart)
+: PWA로 셋팅하여 앱처럼 볼 수 있도록 함(설치 가능)
 
 ***Home Page***
 * Router를 이용해 페이지 나누기
