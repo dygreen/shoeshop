@@ -50,7 +50,7 @@ function Detail(props){
       }
 
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-md-4">
           <img src={`https://codingapple1.github.io/shop/shoes${찾은상품.id + 1}.jpg`} width="100%" />
         </div>
         <div className="col-md-6 mt-4">
@@ -83,7 +83,7 @@ function Detail(props){
       </div>
 
       {/* tab */}
-      <Nav variant="tabs" defaultActiveKey="link-0">
+      <Nav variant="tabs" defaultActiveKey="link-0" className="tabs">
         <Nav.Item>
           <Nav.Link eventKey="link-0" onClick={()=>{setTab(0)}}>Info</Nav.Link>
         </Nav.Item>

@@ -93,21 +93,11 @@ Form .mb-3, Form Button{
   margin-right: 0.5%;
 }
 
-@media screen and (max-width: 880px) {
-  .col-md-4 {
-    width: 50vw;
-    height: 50vh;
-  }
-
-  .right {
-    display: none;
-  }
-}
 
 
 /* cart page*/
 .table{
-  width: 1200px; 
+  width: 60%; 
   margin: 70px auto;
   color: #666;
 }
@@ -124,4 +114,21 @@ Form .mb-3, Form Button{
 .btn-cart{
   display: flex;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 767px) {
+  .right {
+    display: none;
+  }
+
+  .intro{margin-top: 100px;}
+
+  /* cart */
+  .table{width: 90%;}
+  
+  h1{
+    font-size: 25px;
+    width: 100px;
+  }
+
 }

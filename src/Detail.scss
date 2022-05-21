@@ -2,9 +2,8 @@
   background: #fffd93;
   padding: 15px;
   border-radius: 5px;
-  max-width: 500px;
-  width: 100%;
-  margin: 20px auto;
+  width: 60%;
+  margin: 60px auto;
   text-align: center;
 }
 
@@ -26,8 +25,7 @@
 }
 
 .detail{
-  width: 1200px;
-  margin: 100px auto;
+  margin-top: 30px;
 }
 
 .info{margin-top: 20px;}
@@ -35,4 +33,8 @@
 .select_box{
   display: block;
   margin-bottom: 20px;
+}
+
+.tabs{
+  margin-top: 5%;
 }
