@@ -4,7 +4,7 @@ React를 활용해 실습 페이지 UI 보강하기(PWA 구현)
 > 
 > [2022.04.09~2022.05.17]
 > 
-> 주소: https://aebc-49-165-41-184.jp.ngrok.io/
+> 주소: https://3dab-49-165-41-184.jp.ngrok.io/#/
 > 
 ***
 ## Site map
