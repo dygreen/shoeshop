@@ -57,7 +57,7 @@ function App() {
                     }}}></div>{/* modal */}
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                       <Form.Label>Email address</Form.Label>
-                      <Form.Control type="email" placeholder="Enter email" />
+                      <Form.Control type="email" placeholder="Enter email" className="user-email"/>
                       <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                       </Form.Text>
@@ -65,12 +65,24 @@ function App() {
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                       <Form.Label>Password</Form.Label>
-                      <Form.Control type="password" placeholder="Password" />
+                      <Form.Control type="password" placeholder="Password" className="user-pw"/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                       <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    {/* 이메일+비번(대문자) 정규식 검사 */}
+                    <Button variant="primary" type="submit" onClick={(e)=>{
+                      let inputVal = document.querySelector(".user-email").value;
+                      if(/\S+@\S+\.\S+/.test(inputVal) == false){
+                        alert("이메일 형식이 아닙니다.");
+                        e.preventDefault();
+                      }
+
+                      let pwVal = document.querySelector(".user-pw").value;
+                      if(/[A-Z]/.test(pwVal) == false){
+                        alert("비밀번호에 대문자가 1개 이상 들어가야 합니다.");
+                      }
+                    }}>
                       Submit
                     </Button>
                   </Form>
