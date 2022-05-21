@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/dygreen/shoeshop/static/css/main.f6c73e34.css",
+    "main.js": "/dygreen/shoeshop/static/js/main.66366a2c.js",
+    "static/js/83.db72f736.chunk.js": "/dygreen/shoeshop/static/js/83.db72f736.chunk.js",
+    "static/js/787.dbe6e251.chunk.js": "/dygreen/shoeshop/static/js/787.dbe6e251.chunk.js",
+    "static/media/background.jpg": "/dygreen/shoeshop/static/media/background.e7794573a54499c6f6ab.jpg",
+    "service-worker.js": "/dygreen/shoeshop/service-worker.js",
+    "index.html": "/dygreen/shoeshop/index.html",
+    "main.f6c73e34.css.map": "/dygreen/shoeshop/static/css/main.f6c73e34.css.map",
+    "main.66366a2c.js.map": "/dygreen/shoeshop/static/js/main.66366a2c.js.map",
+    "83.db72f736.chunk.js.map": "/dygreen/shoeshop/static/js/83.db72f736.chunk.js.map",
+    "787.dbe6e251.chunk.js.map": "/dygreen/shoeshop/static/js/787.dbe6e251.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f6c73e34.css",
+    "static/js/main.66366a2c.js"
+  ]
+}
