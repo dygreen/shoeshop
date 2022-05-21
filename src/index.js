@@ -4,9 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { combineReducers, createStore } from 'redux';
+import { HashRouter } from 'react-router-dom';
 
 // Cart: 장바구니 수량 변경 버튼
 let shoes = [
@@ -65,11 +66,11 @@ let store = createStore(combineReducers({reducer,reducer2}));
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Provider store={store}>
         <App />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
