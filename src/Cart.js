@@ -6,8 +6,6 @@ import './Detail.scss';
 import { connect, useSelector, useDispatch } from 'react-redux';
 
 function Cart(props){
-  // useSelector Hook 사용
-  // let state = useSelector((state) => state);
   let dispatch = useDispatch();
   let history = useHistory();
 
@@ -45,7 +43,7 @@ function Cart(props){
       { props.alert === true
         ? (<div className='my-alert'>
         <p>지금 구매하시면 20% 할인</p>
-        <Button variant="primary" onClick={()=>{dispatch({type: 'alertX'})}}>✕</Button>
+        <Button variant="outline-dark" onClick={()=>{dispatch({type: 'alertX'})}}>✕</Button>
         </div>)
         : null
       }

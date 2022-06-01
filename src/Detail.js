@@ -72,12 +72,12 @@ function Detail(props){
             <option value="270">270</option>
           </select>
 
-          <button className="btn btn-danger" onClick={()=>{
+          <button className="btn btn-outline-dark" onClick={()=>{
             props.setStock([9,10,11]);
             props.dispatch({type:'add', data: {id: 찾은상품.id, name: 찾은상품.title, quan: 1, size: size}});
             history.push('/cart');
             }}>주문하기</button>
-          <button onClick={()=>{ history.push('/cart')}} className='btn btn-success' style={{margin: '0 5px'}}>장바구니</button>
+          <button onClick={()=>{ history.push('/cart')}} className='btn btn-outline-dark' style={{margin: '0 5px'}}>장바구니</button>
           <button onClick={()=>{ history.push('/') }} className="btn btn-dark">뒤로가기</button>
         </div>
       </div>
@@ -127,14 +127,6 @@ function TabContent({tab}){ /* {tab} => props */
   return (<div className={`start ${fade} info`}>
     {[<div>상품정보 내용입니다</div>, <div>배송관련 내용입니다</div>, <div>환불약관 내용입니다</div>][tab]}
   </div>)
-  
-  /* if (tab === 0){
-    return <div>상품정보 내용입니다</div>
-  } else if (tab === 1){
-    return <div>배송관련 내용입니다</div>
-  } else if (tab === 2){
-    return <div>환불약관 내용입니다</div>
-  } */
 }
 
 function makeProps(state){

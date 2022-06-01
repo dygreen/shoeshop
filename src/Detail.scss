@@ -1,9 +1,10 @@
 @mixin alert() {
-  background: #fffd93;
+  background: #fffb00;
   padding: 15px;
   border-radius: 5px;
   width: 60%;
-  margin: 60px auto;
+  margin: 0 auto;
+  margin-top: 8%;
   text-align: center;
 }
 
@@ -24,17 +25,19 @@
   transition: opacity 0.5s;
 }
 
-.detail{
+.detail {
   margin-top: 30px;
 }
 
-.info{margin-top: 20px;}
+.info {
+  margin-top: 20px;
+}
 
-.select_box{
+.select_box {
   display: block;
   margin-bottom: 20px;
 }
 
-.tabs{
+.tabs {
   margin-top: 5%;
 }

@@ -19,7 +19,7 @@
 .background {
   background: url(./background.jpg) no-repeat center center;
   background-size: cover;
-  padding: 10vw;
+  padding: 12vw;
   width: 100%;
   height: 450px;
 }
@@ -34,7 +34,7 @@
 }
 
 /* modal */
-Form{
+Form {
   position: fixed;
   top: 0;
   left: 0;
@@ -46,17 +46,8 @@ Form{
   align-items: center;
 }
 
-Form .black_back{ /* 모달 - 검정 배경 */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  z-index: 100;
-}
-
-Form .mb-3, Form Button{
+Form .mb-3,
+Form Button {
   width: 350px;
   color: #fff;
   position: relative;
@@ -83,37 +74,36 @@ Form .mb-3, Form Button{
   margin: -15px auto;
 }
 
-.button_list{ /* 정렬 버튼 리스트 */
-  display: flex;
-  justify-content: center;
-}
-
+/* 정렬 버튼 리스트 */
 .sortBtn {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-right: 0.5%;
 }
 
-
-
 /* cart page*/
-.table{
-  width: 60%; 
+.table {
+  width: 60%;
   margin: 70px auto;
   color: #666;
 }
 
-.table h1{
+.table h1 {
   margin: 30px 0;
   color: #333;
 }
 
-.table td{padding: 10px;}
+.table td {
+  padding: 10px;
+}
 
-.table Button{padding: 5px 10px;}
+.table Button {
+  padding: 5px 10px;
+}
 
-.btn-cart{
+.btn-cart {
   display: flex;
   margin: 0 auto;
+  margin-top: 2%;
 }
 
 @media screen and (max-width: 767px) {
@@ -121,12 +111,16 @@ Form .mb-3, Form Button{
     display: none;
   }
 
-  .intro{margin-top: 100px;}
+  .intro {
+    margin-top: 100px;
+  }
 
   /* cart */
-  .table{width: 90%;}
-  
-  h1{
+  .table {
+    width: 90%;
+  }
+
+  h1 {
     font-size: 25px;
     width: 100px;
   }
