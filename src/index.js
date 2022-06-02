@@ -53,8 +53,8 @@ function reducer(state = shoes, action){
 }
 
 // Cart: alert창 UI
-let alert = true;
-function reducer2(state = alert, action){
+let alertTop = true;
+function reducer2(state = alertTop, action){
   if (action.type === 'alertX'){
     return false
   } else {

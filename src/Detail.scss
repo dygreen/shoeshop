@@ -16,6 +16,25 @@
   margin-bottom: 0;
 }
 
+.detail {
+  margin-top: 80px;
+}
+
+.row {
+  margin-bottom: 100px;
+}
+
+.col-md-4 img{
+  margin-top: 30px;
+}
+
+// select box
+.select_box {
+  display: block;
+  margin-bottom: 20px;
+}
+
+// 탭 애니메이션 효과
 .start {
   opacity: 0;
 }
@@ -25,19 +44,11 @@
   transition: opacity 0.5s;
 }
 
-.detail {
-  margin-top: 30px;
+// 탭 내용
+.tabs {
+  margin-top: 5%;
 }
 
 .info {
   margin-top: 20px;
-}
-
-.select_box {
-  display: block;
-  margin-bottom: 20px;
-}
-
-.tabs {
-  margin-top: 5%;
 }

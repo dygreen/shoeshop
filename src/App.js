@@ -27,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+
       <Navbar className="navbar" bg="light" expand="lg">
         <Container className="container">
           {/* 왼쪽 gnb */}
@@ -39,7 +40,7 @@ function App() {
             </Nav>
             {/* 오른쪽 gnb */}
             <Nav className="me-auto right">
-              <Nav.Link onClick={()=>{setLogin(false)}}><BsFillPersonFill className="login" size="22"/></Nav.Link>
+              <Nav.Link onClick={() => {setLogin(false)}}><BsFillPersonFill className="login" size="22"/></Nav.Link>
               {/* 로그인 모달창 */}
               { login == false 
                 ? ( <LoginForm setLogin={setLogin}/> )
@@ -78,32 +79,39 @@ function App() {
               }
             </div>
 
-
             {/* GET 요청으로 상품 데이터(shoes) 불러오기 
             + 클릭 수(count)에 따라 다른 경로 요청 
             + 준비된 데이터가 끝나면 더보기 버튼(btn) 없애기*/}
             { btn == true
               ? (<button className="btn btn-dark moreBtn" 
-              onClick={()=>{
-                setCount(count++); /* count=1이므로 if문 실행 */
-                if(count === 1){
-                  axios.get('https://codingapple1.github.io/shop/data2.json')
-                  .then((result)=>{
-                    setShoes([...shoes, ...result.data]);
-                    setGoods(goods + 3); /* 1번 누르면-goods=3, 2번 누르면-goods=6 */
-                  })
-                  .catch(()=>{setFail(false);})
-                  setCount(count++); /* count=2로 만들어 else if문 실행 */
-                }else if(count === 2){
-                  axios.get('https://codingapple1.github.io/shop/data3.json')
-                  .then((result)=>{
-                    setShoes([...shoes, ...result.data]);
-                    setGoods(goods + 3);
-                    if(goods >= 6){ /* goods=6이상이므로 더보기버튼 없애기 */
-                      setBtn(false);
-                    }
-                  })
-                  .catch(()=>{setFail(false);})
+              onClick={() => {
+                setCount(count++); /* count=1이므로 switch문 실행 */
+
+                switch(count){
+                  case 1 :
+                    axios
+                    .get('https://codingapple1.github.io/shop/data2.json')
+                    .then((result) => {
+                      setShoes([...shoes, ...result.data]);
+                      setGoods(goods + 3); /* 1번 누르면-goods=3, 2번 누르면-goods=6 */
+                    })
+                    .catch(() => {setFail(false);})
+                    setCount(count++); /* count=2로 만들어 else if문 실행 */
+                    break;
+                  case 2 :
+                    axios
+                    .get('https://codingapple1.github.io/shop/data3.json')
+                    .then((result) => {
+                      setShoes([...shoes, ...result.data]);
+                      setGoods(goods + 3);
+                      if(goods >= 6){ /* goods=6이상이므로 더보기버튼 없애기 */
+                        setBtn(false);
+                      }
+                    })
+                    .catch(() => {setFail(false);})
+                    break;
+                  default :
+                    break;
                 }
               }}>더보기</button>)
               : null
@@ -131,6 +139,7 @@ function App() {
           <Cart></Cart>
         </Route>
       </Switch>
+
     </div>
   );
 }
@@ -145,7 +154,7 @@ function Card(props){
     onClick={() => {
       history.push('/detail/'+props.shoes.id);
       }}>
-      <img src={`https://codingapple1.github.io/shop/shoes${props.shoes.id + 1}.jpg`} width="100%" />
+      <img src={`https://dygreen.github.io/React-study/img/shoes${props.shoes.id + 1}.jpg`} width="100%" />
       <h4>{props.shoes.title}</h4>
       <p>{props.shoes.content} & {props.shoes.price}</p>
       <p>재고: {props.stock[props.i]}</p>

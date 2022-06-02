@@ -42,7 +42,7 @@ function LoginForm(props){
       </Form.Group>
 
       {/* 이메일+비번(대문자) 정규식 검사 */}
-      <Button variant="primary" type="submit" onClick={(e)=>{
+      <Button variant="primary" type="submit" onClick={(e) => {
         let inputVal = document.querySelector(".user-email").value;
         if(/\S+@\S+\.\S+/.test(inputVal) == false){
           alert("이메일 형식이 아닙니다.");
