@@ -50,4 +50,5 @@ React를 활용해 실습 페이지 UI 보강하기(PWA 셋팅)
 * styled-components를 이용한 스타일링
 * 사진 오류뜨는 부분: 새로운 url을 만들어 해결
 * Detail page에서 재고가 0개가 되면 재고없음 알림창 띄우기
+* Detail page에서 사이즈를 선택 안 하면 알림창, 선택하면 장바구니로 정보전달(Ternary operator 사용)
 * 
