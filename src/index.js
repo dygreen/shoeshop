@@ -16,41 +16,55 @@ let shoes = [
 ];
 
 function reducer(state = shoes, action){
-  if(action.type === 'add'){
-    // 같은 상품을 주문하면, 항목추가x 수량증가o (findeIndex()활용)
-    let found = state.findIndex((a)=>{return a.id === action.data.id}); /* state안에 id: action.data인 것이 있으면-있는 '자리'의 값을 남김(found=0,1,2...) */
-    if(found >= 0){
-      let copy = [...state];
-      copy[found].quan++;
-      copy[found].size = action.data.size; /* size 값 나타내기 */
-      return copy
-    } else {
-      let copy = [...state];
-      copy.push(action.data); //'주문하기'->장바구니 추가
-      return copy
-    }
-  } else if (action.type === 'quanUp'){
-    let copy = [...state];
-    copy[action.data].quan++;
-    return copy
-  } else if(action.type === 'quanDown'){
-    let copy = [...state];
-    if(copy[action.data].quan > 0){ /* 수량이 음수가 되면 감소를 멈추는 기능 */
-      copy[action.data].quan--;
-      return copy
-    } else {
-      return copy
-    }
-  } else if (action.type === 'deleteX'){ /* 삭제 기능 */
-    let copy = [...state];
-    let deleteV = copy.filter((a)=>{
-      return a.id !== action.data
-    });
-    return deleteV
-  } else {
-    return state
+  switch (action.type){
+     // add: 같은 상품을 주문하면, 항목추가x 수량증가o (findeIndex()활용)
+    case 'add':
+      let found = state.findIndex((a) => {return a.id === action.data.id}); 
+        /* state안에 id: action.data인 것이 있으면-있는 '자리'의 값을 남김(found=0,1,2...) */
+      if(found >= 0){
+        let copy = [...state];
+        copy[found].quan++;
+        copy[found].size = action.data.size; /* size 값 나타내기 */
+        return copy
+      } else { /* 없으면(=> -1) 장바구니 추가 */
+        let copy = [...state];
+        copy.push(action.data);
+        return copy
+      }
+    
+    // quanUp: 수량증가 버튼
+    case 'quanUp':
+      let found2 = state.findIndex((a) => {return a.id === action.data}); 
+      if(found2 >= 0){
+        let copy = [...state];
+        copy[found2].quan++;
+        return copy
+      } 
+
+    // quanDown: 수량감소 버튼
+    case 'quanDown':
+      let found3 = state.findIndex((a) => {return a.id === action.data}); 
+      let copy=[...state];
+      if(found3 >= 0 && copy[found3].quan > 0){
+        copy[found3].quan--;
+        return copy
+      } else {
+        return copy
+      }
+
+    // deleteX: 항목 삭제 버튼
+    case 'deleteX':
+      let copy2 = [...state];
+      let deleteV = copy2.filter((a)=>{
+        return a.id !== action.data
+      });
+      return deleteV
+
+    default:
+      return state
   }
 }
+
 
 // Cart: alert창 UI
 let alertTop = true;

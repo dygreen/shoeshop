@@ -9,9 +9,9 @@ import axios from'axios';
 import Data from './components/data.js';
 import LoginForm from './components/LoginForm.js';
 import SortBtns from './components/SortBtns.js';
-import Cart from './Cart.js'
+import Cart from './pages/Cart.js'
 import './App.css';
-let Detail = lazy(() => { return import ('./Detail.js')});
+let Detail = lazy(() => { return import ('./pages/Detail.js')});
 
 
 function App() {
