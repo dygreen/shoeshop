@@ -1,12 +1,14 @@
+/* 메인 페이지의 정렬 버튼 컴포넌트 */
+
 import React from "react";
 import styled from "styled-components";
 import { Button } from 'react-bootstrap';
 
+// 버튼 위치 정렬
 const BtnList = styled.div`
   display: flex;
   justify-content: center;
 `;
-
 
 function SortBtns(props){
   return (
@@ -54,7 +56,7 @@ function SortBtns(props){
       {/* 11만원이하 정렬 */}
       <Button variant="outline-dark" className="sortBtn" 
       onClick={() => {
-        const priceF = [...props.shoes].filter((a)=>{
+        const priceF = [...props.shoes].filter((a) => {
           return a.price <= 110000
         });
         props.setShoes(priceF);

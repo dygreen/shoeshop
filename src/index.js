@@ -1,3 +1,5 @@
+/* 장바구니 페이지: redux로 수량증감, 삭제, 주문 사이즈 확인 관리 */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -17,6 +19,7 @@ let shoes = [
 
 function reducer(state = shoes, action){
   switch (action.type){
+
      // add: 같은 상품을 주문하면, 항목추가x 수량증가o (findeIndex()활용)
     case 'add':
       let found = state.findIndex((a) => {return a.id === action.data.id}); 
@@ -45,7 +48,7 @@ function reducer(state = shoes, action){
     case 'quanDown':
       let found3 = state.findIndex((a) => {return a.id === action.data}); 
       let copy=[...state];
-      if(found3 >= 0 && copy[found3].quan > 0){
+      if(found3 >= 0 && copy[found3].quan > 0){ /* 수량이 0이되면 감소 중단 */
         copy[found3].quan--;
         return copy
       } else {
@@ -75,6 +78,7 @@ function reducer2(state = alertTop, action){
     return state
   }
 }
+
 
 let store = createStore(combineReducers({reducer,reducer2}));
 

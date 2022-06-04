@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+/* 메인 페이지에서 상품 이미지를 클릭했을 때 나오는 상세페이지 */
+
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { Nav } from "react-bootstrap";
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
+import { useStockContext } from '../App.js';
 import './Detail.scss';
 
 
@@ -34,38 +37,17 @@ function Detail(props){
   // Detail 컴포넌트 로드시 투명도가 0에서 1로 서서히 증가하는 애니메이션 효과
   let [fade2, setFade2] = useState('');
   useEffect(() => {
-    setFade2("end");
+    setFade2("end"); /* Detail.scss내부의 클래스를 추가하여 효과 적용 */
     return () => {
       setFade2('');
     }
   }, []);
-  
 
-  let [stock2, setStock2] = useState([...props.stock]);
-  function OrderInfo(){
-    let stockInfo = stock2[id];
-      if(stockInfo > 0){
-        
-        stockInfo -= 1; /* 재고 -1 */
-        console.log(stockInfo);
-        let newStock2 = stock2.splice(`${찾은상품.id}`, 1, stockInfo);
-        setStock2(stockInfo);
-        // props.setStock([9,stockInfo, 10 ,5]);
-        // props.setStock(`${props.stock[찾은상품.id]}` == stockInfo);
-        // props.setStock(props.stock.splice(`${찾은상품.id}`, 1, stockInfo));
-        // props.setStock(props.stock[찾은상품.id] = stockInfo); 새로운 stock을 만들자
-        console.log(stock2);
-        console.log(stock2[찾은상품.id]);
-        props.dispatch({type:'add', data: {id: 찾은상품.id, name: 찾은상품.title, quan: 1, size: size}}); /* 상품정보 dispatch */
-        history.push('/cart'); /* Cart page로 이동 */
-        console.log(stock2[찾은상품.id]);
-      } else if (stockInfo === 0){
-        alert("재고가 없습니다😢 다른 상품은 어떠세요?");
-      }
-  }
+  // 'stock' state Context API 사용(App.js)
+  let useStock = useContext(useStockContext);
 
   return(  
-    <div className={`container detail start ${fade2}`}>
+    <div className={`container detail start ${fade2}`}> {/* 애니메이션 적용 */}
 
       {/* 알림창 */}
       { alertTop === true
@@ -85,7 +67,7 @@ function Detail(props){
 
 
           {/* 재고 */}
-          <Info stock2={stock2} 찾은상품={찾은상품} />
+          <Info 찾은상품={찾은상품} />
 
 
           {/* 사이즈 select box */}
@@ -107,9 +89,29 @@ function Detail(props){
             // 사이즈 선택을 안하면 알림창, 하면 장바구니로 정보전달
             size == ''
             ? alert("사이즈를 선택해주세요!")
-            : OrderInfo();
+            : orderInfo();
 
-            
+            function orderInfo(){
+              // 재고가 0보다 크면 -1, 0이면 감소 중단
+              if(useStock[찾은상품.id] > 0){
+                
+                useStock[찾은상품.id]--; /* 재고 -1 */
+                props.dispatch({ /* 상품정보 dispatch */
+                  type:'add', 
+                  data: {
+                    id: 찾은상품.id, 
+                    name: 찾은상품.title, 
+                    quan: 1, 
+                    size: size
+                  }
+                }); 
+                history.push('/cart'); /* Cart page로 이동 */
+        
+              } else if (useStock[찾은상품.id] === 0){
+                alert("재고가 없습니다😢 다른 상품은 어떠세요?");
+              }
+            }
+          
             }}>주문하기</button>
           <button onClick={() => { history.push('/cart')}} className='btn btn-outline-dark' style={{margin: '0 5px'}}>장바구니</button>
           <button onClick={() => { history.push('/') }} className="btn btn-dark">뒤로가기</button>
@@ -138,8 +140,9 @@ function Detail(props){
 
 // 재고 데이터 표시 Info 컴포넌트
 function Info(props){
+  let useStock = useContext(useStockContext);
   return (
-    <p>재고: {props.stock2[props.찾은상품.id]}</p>
+    <p>재고: {useStock[props.찾은상품.id]}</p>
   )
 }
 
@@ -167,4 +170,5 @@ function makeProps(state){
   }
 }
 
+// memo()를 통해 변경이 안 된 컴포넌트의 재렌더링을 방지
 export default React.memo(connect(makeProps)(Detail));

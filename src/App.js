@@ -9,9 +9,9 @@ import axios from'axios';
 import Data from './components/data.js';
 import LoginForm from './components/LoginForm.js';
 import SortBtns from './components/SortBtns.js';
-import Cart from './pages/Cart.js'
 import './App.css';
-let Detail = lazy(() => { return import ('./pages/Detail.js')});
+let Detail = lazy(() => { return import ('./pages/Detail.js') });
+let Cart = lazy(() => { return import ('./pages/Cart.js') });
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
   let [goods, setGoods] = useState(3); /* 상품 갯수 */
   let [count, setCount] = useState(0); /* 더보기 버튼 클릭 횟수 */
   let [fail, setFail] = useState(true); /* catch함수에 담을 내용 */
-  let [stock, setStock] = useState([10,11,12,14,19,21,2,5,27]); /* 재고 데이터 */
+  let [stock, setStock] = useState([10,11,12,14,19,21,2,5,27]); /* 재고 데이터 -> Context */
   let [login, setLogin] = useState(true); /* 로그인 모달창 */
 
   return (
@@ -79,15 +79,16 @@ function App() {
               }
             </div>
 
-            {/* GET 요청으로 상품 데이터(shoes) 불러오기 
+            {/* 더보기 버튼: GET 요청으로 상품 데이터(shoes) 불러오기 
             + 클릭 수(count)에 따라 다른 경로 요청 
-            + 준비된 데이터가 끝나면 더보기 버튼(btn) 없애기*/}
+            + 준비된 데이터가 끝나면 버튼(btn) 없애기*/}
             { btn == true
               ? (<button className="btn btn-dark moreBtn" 
               onClick={() => {
                 setCount(count++); /* count=1이므로 switch문 실행 */
 
                 switch(count){
+                  // 1번 눌렀을 때
                   case 1 :
                     axios
                     .get('https://codingapple1.github.io/shop/data2.json')
@@ -98,6 +99,8 @@ function App() {
                     .catch(() => {setFail(false);})
                     setCount(count++); /* count=2로 만들어 else if문 실행 */
                     break;
+
+                  // 2번 눌렀을 때
                   case 2 :
                     axios
                     .get('https://codingapple1.github.io/shop/data3.json')
@@ -110,6 +113,7 @@ function App() {
                     })
                     .catch(() => {setFail(false);})
                     break;
+
                   default :
                     break;
                 }
@@ -130,13 +134,18 @@ function App() {
         {/* Detail page */}
         <Route path="/detail/:id">
           <Suspense fallback={<div>로딩중입니다~!</div>}>
-            <Detail stock={stock} setStock={setStock} shoes={shoes}/>
+            {/* 'stock' state Context API 사용 */}
+            <useStockContext.Provider value={stock}>
+              <Detail shoes={shoes}/>
+              </useStockContext.Provider>
           </Suspense>
         </Route>
 
         {/* Cart page */}
         <Route path="/cart">
-          <Cart></Cart>
+          <Suspense fallback={<div>로딩중입니다~!</div>}>
+            <Cart />
+          </Suspense>
         </Route>
       </Switch>
 
@@ -163,3 +172,5 @@ function Card(props){
 }
 
 export default App;
+
+export let useStockContext = React.createContext();

@@ -1,3 +1,5 @@
+/* shoes 상품 데이터 */
+
 export default [
   {
     id : 0,

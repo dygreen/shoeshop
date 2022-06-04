@@ -1,7 +1,10 @@
+/* gnb 오른쪽 사람 아이콘 클릭시 나오는 로그인 모달창 컴포넌트 */
+
 import React, { useRef } from 'react';
 import styled from "styled-components";
 import { Form, Button } from 'react-bootstrap';
 
+// 모달창 검정배경
 const BlackBlock = styled.div`
   position: fixed;
   top: 0;
@@ -53,7 +56,6 @@ function LoginForm(props){
         if(/[A-Z]/.test(pwVal) == false){
           alert("비밀번호에 대문자가 1개 이상 들어가야 합니다.");
         }
-
       }}> Submit </Button>
     </Form>
   )

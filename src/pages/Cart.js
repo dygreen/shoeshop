@@ -1,3 +1,5 @@
+/* 장바구니 페이지 */
+
 import React from 'react';
 import { Table, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
