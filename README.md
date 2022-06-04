@@ -53,3 +53,6 @@ React를 활용해 실습 페이지 UI 보강하기(PWA 셋팅)
 * Detail page에서 사이즈를 선택 안 하면 알림창, 선택하면 장바구니로 정보전달(Ternary operator 사용)
 * 코드 가독성을 높이기 위해 일부 if문 -> switch문으로 변경
 * Cart page 수량증감 버튼 동작 안 되는 부분 해결
+
+***
+#### _* 자세한 프로젝트 실행과정 정리 (노션: https://prickle-turn-785.notion.site/ShoeShop-0056f45ce459414e94405ddc6ede7be7)_
