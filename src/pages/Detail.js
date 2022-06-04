@@ -58,7 +58,7 @@ function Detail(props){
       {/* 상품 card */}
       <div className="row">
         <div className="col-md-4">
-          <img src={`https://dygreen.github.io/React-study/img/shoes${찾은상품.id + 1}.jpg`} width="100%" />
+          <img src={`https://dygreen.github.io/react-study/img/shoes${찾은상품.id + 1}.jpg`} width="100%" />
         </div>
         <div className="col-md-6 mt-4">
           <h4 className="pt-5">{찾은상품.title}</h4>

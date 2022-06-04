@@ -163,7 +163,7 @@ function Card(props){
     onClick={() => {
       history.push('/detail/'+props.shoes.id);
       }}>
-      <img src={`https://dygreen.github.io/React-study/img/shoes${props.shoes.id + 1}.jpg`} width="100%" />
+      <img src={`https://dygreen.github.io/react-study/img/shoes${props.shoes.id + 1}.jpg`} width="100%" />
       <h4>{props.shoes.title}</h4>
       <p>{props.shoes.content} & {props.shoes.price}</p>
       <p>재고: {props.stock[props.i]}</p>
