@@ -12,6 +12,12 @@ React를 활용해 실습 페이지 UI 보강하기(PWA 셋팅)
 
 <img width="500" alt="스크린샷 2022-05-21 오후 9 50 48" src="https://user-images.githubusercontent.com/95523625/169652295-5c7c6c51-dd99-4382-8d76-d926c86561e2.png">
 
+## Service Info
+* PWA 셋팅으로 앱처럼 이용 가능
+* 상품 이미지 클릭시 상세 페이지로 이동
+* 사이즈 선택 후 장바구니에 상품 정보 담기
+* 장바구니 내 상품 수량 변경, 삭제 가능
+* 로그인 모달창
 
 ## Pages
 : 총 3 페이지 (Home | Detail | Cart)
