@@ -8,9 +8,9 @@ React를 활용해 실습 페이지 UI 보강하기(PWA 셋팅)
 > 
 ***
 ## Site map
-: 파란색=component
 
-<img width="500" alt="스크린샷 2022-05-21 오후 9 50 48" src="https://user-images.githubusercontent.com/95523625/169652295-5c7c6c51-dd99-4382-8d76-d926c86561e2.png">
+
+<img width="600" alt="site map" src="https://user-images.githubusercontent.com/95523625/175555764-7b18d004-961e-41af-87d7-3914d04d0fb5.png">
 
 ***
 
