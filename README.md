@@ -71,4 +71,4 @@ React를 활용해 실습 페이지 UI 보강하기(PWA 셋팅)
 * 사용자의 눈에 거슬리지 않는 깔끔한 UI가 필요함
 
 ***
-#### _* 자세한 프로젝트 실행과정 정리 (노션: https://prickle-turn-785.notion.site/ShoeShop-0056f45ce459414e94405ddc6ede7be7)_
+#### _* 자세한 프로젝트 실행과정 정리 (노션: https://prickle-turn-785.notion.site/ShoeShop-3903cc60660e45398036f7c964d137c6)_
