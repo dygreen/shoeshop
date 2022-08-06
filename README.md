@@ -1,5 +1,5 @@
 # ShoeShop-React
-React를 활용해 실습 페이지 UI 보강하기(PWA 셋팅)
+: React를 활용한 신발 쇼핑몰 SPA (PWA 셋팅)
 > React 온라인 강의를 들으며 제작했던 쇼핑몰 페이지 보강하기
 > 
 > [개인 프로젝트: 2022.04.09~2022.05.17]
@@ -71,4 +71,4 @@ React를 활용해 실습 페이지 UI 보강하기(PWA 셋팅)
 * 사용자의 눈에 거슬리지 않는 깔끔한 UI가 필요함
 
 ***
-#### _* 자세한 프로젝트 실행과정 정리 (노션: https://prickle-turn-785.notion.site/ShoeShop-3903cc60660e45398036f7c964d137c6)_
+#### _* 자세한 프로젝트 실행과정 정리 (노션: https://prickle-turn-785.notion.site/ShoeShop-fa1bda7f6de04957b1117c8432c48213)_
