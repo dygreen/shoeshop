@@ -1,4 +1,4 @@
-# ShoeShop-React
+# ShoeShop
 : React를 활용한 신발 쇼핑몰 SPA (PWA 셋팅)
 > React 온라인 강의를 들으며 제작했던 쇼핑몰 페이지 보강하기
 > 
